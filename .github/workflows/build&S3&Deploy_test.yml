@@ -59,9 +59,7 @@ jobs:
         run: aws s3 cp --region ${{env.AWS_REGION}} ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip 
               
       - name : set up codeDeploy
-        run: |
-          cd /home/ubuntu \
-          wget https://${{env.S3.BUCKET_NAME}}.s3.${{env.AWS_REGION}}.amazonaws.com/latest/install
+        run: wget https://${{env.S3.BUCKET_NAME}}.s3.${{env.AWS_REGION}}.amazonaws.com/latest/install
 
       - name : grant execute permission for ./install
         run : chmod +x ./install
