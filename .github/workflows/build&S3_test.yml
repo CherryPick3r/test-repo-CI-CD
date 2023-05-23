@@ -51,6 +51,23 @@ jobs:
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: ${{env.AWS_REGION}}
         
+      - name: setup AWS S3
+        run: | 
+          sudo apt update \
+          sudo apt install ruby-full \
+          sudo apt install wget \
+          cd /home/ubuntu \
+          wget https://${{S3_BUCKET_NAME}}.s3.${{AWS_REGION}}.amazonaws.com/latest/install
+
+      - name: Grant execute permission for ./install 
+        run: chmod +x ./install
+
+      - name:  install  S3
+        run: sudo ./install auto > /tmp/logfile
+
+      - name: start codedeploy
+        run: sudo service codedeploy-agent start
+      
       - name: Upload to AWS S3
         run: |
           aws deploy push \
