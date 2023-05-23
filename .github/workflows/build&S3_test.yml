@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
   
 env:
-  AWS_REGON: ap-northeast-2
+  AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: cherrypicker-bucket
   CODE_DEPLOY_APPLICATION_NAME: cherrypicker-codeploy-app
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: cherrypicker-deployment-group
