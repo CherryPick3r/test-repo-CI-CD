@@ -60,9 +60,9 @@ jobs:
               
       - name : set up codeDeploy
         run: |
-          apt update \
-          apt install ruby-full \
-          apt install wget \
+          apt-get update \
+          apt-get install ruby-full \
+          apt-get install wget \
           cd /home/ubuntu \
           wget https://${{env.S3.BUCKET_NAME}}.s3.${{env.AWS_REGION}}.amazonaws.com/latest/install
 
