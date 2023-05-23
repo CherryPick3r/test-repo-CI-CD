@@ -64,7 +64,7 @@ jobs:
           apt install ruby-full \
           apt install wget \
           cd /home/ubuntu \
-          wget https://${env.S3.BUCKET_NAME}.s3.${env.AWS_REGION}.amazonaws.com/latest/install
+          wget https://${{env.S3.BUCKET_NAME}}.s3.${{env.AWS_REGION}}.amazonaws.com/latest/install
 
       - name : grant execute permission for ./install
         run : chmod +x ./install
