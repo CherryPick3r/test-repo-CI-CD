@@ -50,31 +50,11 @@ jobs:
           aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: ${{env.AWS_REGION}}
-        
-      - name: setup AWS S3
-        run: |
-          sudo apt update \
-          sudo apt install ruby-full \
-          sudo apt install wget \
-          cd /home/ubuntu \
-          wget https://${{env.S3_BUCKET_NAME}}.s3.${{env.AWS_REGION}}.amazonaws.com/latest/install
-
-      - name: Grant execute permission for ./install 
-        run: chmod +x ./install
-
-      - name:  install  S3
-        run: sudo ./install auto > /tmp/logfile
-
-      - name: start codedeploy
-        run: sudo service codedeploy-agent start
       
       - name: Upload to AWS S3
         run: |
-          aws deploy push \
-            --application-name &{{env.CODE_DEPLOY_APPLICATION_NAME}} \
-            --ignore-hidden-files \
-            --s3-location s3://${S3_BUCKET_NAME}/$GITHUB_SHA.zip \
-            -- source .
+          aws s3 cp --region ${{env.AWS_REGION}}
+          ./$GITHUB_SHA.zip s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip 
             
 
           
