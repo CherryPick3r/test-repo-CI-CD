@@ -60,7 +60,6 @@ jobs:
               
       - name : set up codeDeploy
         run: |
-          apt update \
           apt-get install ruby-full \
           apt-get install wget \
           cd /home/ubuntu \
