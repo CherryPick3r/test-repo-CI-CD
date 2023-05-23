@@ -52,7 +52,7 @@ jobs:
           aws-region: ${{env.AWS_REGION}}
         
       - name: setup AWS S3
-        run: | 
+        run: |
           sudo apt update \
           sudo apt install ruby-full \
           sudo apt install wget \
