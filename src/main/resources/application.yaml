@@ -44,4 +44,4 @@ secret:
   google:
       ${SECRET_GOOGLE}
 test:
-    test
+    test-yaml
