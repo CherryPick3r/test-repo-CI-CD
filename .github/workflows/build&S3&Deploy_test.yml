@@ -59,12 +59,12 @@ jobs:
       - name : susbstition test
         uses: microsoft/variable-substitution@v1
         with :
-          files: .src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
+          files: ./src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
         env:
           why: ${{env.CHANGE_WORD}}
           
       - name: result substition test
-        run: cat .src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
+        run: cat ./src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
           
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
