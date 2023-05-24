@@ -18,7 +18,7 @@ env:
   S3_BUCKET_NAME: cherrypicker-bucket
   CODE_DEPLOY_APPLICATION_NAME: cherrypicker-codeploy-app
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: cherrypicker-deployment-group
-  APPILICATION_YAML_PATH: src/main/resources/application.yaml
+  APPILICATION_YAML_PATH: ./src/main/resources/application.yaml
   
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
