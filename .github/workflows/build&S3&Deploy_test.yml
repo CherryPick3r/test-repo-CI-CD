@@ -84,5 +84,6 @@ jobs:
           --application-name ${{env.CODE_DEPLOY_APPLICATION_NAME}} \
           --deployment-group-name ${{env. CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}} \
           --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHA.zip
-          
+      - name: result test
+        run: cat .src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
  
