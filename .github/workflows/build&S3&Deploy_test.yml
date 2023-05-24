@@ -18,7 +18,7 @@ env:
   S3_BUCKET_NAME: cherrypicker-bucket
   CODE_DEPLOY_APPLICATION_NAME: cherrypicker-codeploy-app
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: cherrypicker-deployment-group
-  APPILICATION_YAML_PATH: src/main/resources/application.yaml
+  APPILICATION_YAML_PATH: ./src/main/resources/application.yaml
   
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -43,9 +43,9 @@ jobs:
       - name: Set Yaml
         uses: microsoft/variable-substitution@v1
         with:
-          files: ${{env.APPLICATION_YAML_PATH}}
+          files: ${{ env.APPLICATION_YAML_PATH }}
         env:
-          spring.datasource.url: ${{secrets.DATASOURCE_URL}}
+          spring.datasource.url: ${{ secrets.DATASOURCE_URL }}
           spring.datasource.username: ${{secrets.DATASOURCE_USERNAME}}
           spring.datasource.password: ${{secrets.DATASOURCE_PASSWORD}}
           client.id.kakao: ${{secrets.CLIENT_ID_KAKAO}}
