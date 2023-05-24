@@ -43,3 +43,5 @@ redirect:
 secret:
   google:
       ${SECRET_GOOGLE}
+test:
+    test
