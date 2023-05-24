@@ -2,3 +2,5 @@ why:
     ${CHANGE_WORD}
 why2:
     ${WHY2}
+test:
+    ${env.S3_BUCKET_NAME}
