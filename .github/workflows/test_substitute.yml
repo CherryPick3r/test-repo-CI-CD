@@ -44,4 +44,4 @@ jobs:
       - name : echo commands
         run: echo 'done!'
       - name : echo results
-        run: cat ${{TEST_FILE}}
+        run: cat ${{env.TEST_FILE}}
