@@ -42,4 +42,4 @@ jobs:
           wh2: ${{env.CHANGE_WORD}}
       
       - name : echo commands
-          echo > 'done!'
+        run: echo 'done!'
