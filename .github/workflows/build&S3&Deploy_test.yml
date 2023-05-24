@@ -14,11 +14,12 @@ on:
   workflow_dispatch:
   
 env:
-  AWS_REGION: ap-northeast-2
-  S3_BUCKET_NAME: cherrypicker-bucket
-  CODE_DEPLOY_APPLICATION_NAME: cherrypicker-codeploy-app
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: cherrypicker-deployment-group
+  AWS_REGION: ${{secrets.AWS_REGION}}
+  S3_BUCKET_NAME: ${{secrets.S3_BUCKET_NAME}}
+  CODE_DEPLOY_APPLICATION_NAME: ${{secrets.CODE_DEPLOY_APPLICATION_NAME}}
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: ${{secrets.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}}
   APPILICATION_YAML_PATH: ./src/main/resources/application.yaml
+  test: test_for_yaml_set
   
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -43,7 +44,7 @@ jobs:
       - name: Set Yaml
         uses: microsoft/variable-substitution@v1
         with:
-          files: ${{ env.APPLICATION_YAML_PATH }}
+          files: ${{ env.APPILICATION_YAML_PATH }}
         env:
           spring.datasource.url: ${{ secrets.DATASOURCE_URL }}
           spring.datasource.username: ${{secrets.DATASOURCE_USERNAME}}
@@ -82,6 +83,6 @@ jobs:
           --deployment-config-name CodeDeployDefault.AllAtOnce \
           --application-name ${{env.CODE_DEPLOY_APPLICATION_NAME}} \
           --deployment-group-name ${{env. CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}} \
-          --se-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHQ.zip
+          --s3-location bucket=$S3_BUCKET_NAME,bundleType=zip,key=$GITHUB_SHQ.zip
           
  
