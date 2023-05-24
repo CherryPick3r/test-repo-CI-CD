@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
   
 env:
- TEST_FILE: /src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
+ TEST_FILE: ./src/main/java/com/cherrypicker/cherrypick3r/test/controller/testfile.yml
  CHANGE_WORD: yaml!
   
   
