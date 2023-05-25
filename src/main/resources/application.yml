@@ -10,16 +10,17 @@ aws:
         name:
           ebang
 spring:
+  config:
     import:
       'aws-parameterstore:'
 
     datasource:
       url:
-        ${{secrets.DATASOURCE_URL}}
+        ${DATASOURCE_URL}
       username:
-        ${{secrets.DATASOURCE_USERNAME}}
+        ${DATASOURCE_USERNAME}
       password:
-        ${{secrets.DATASOURCE_PASSWORD}}
+        ${DATASOURCE_PASSWORD}
 
     jpa:
       show-sql:
@@ -42,19 +43,19 @@ spring:
 client:
     id:
       kakao:
-        ${{secrets.CLIENT_ID_KAKAO}}
+        ${CLIENT_ID_KAKAO}
       google:
-        ${{secrets.CLIENT_ID_GOOGLE}}
+        ${CLIENT_ID_GOOGLE}
 redirect:
     uri:
       kakao:
-        ${{secrets.REDIRECT_URI_KAKAO}}
+        ${REDIRECT_URI_KAKAO}
       google:
-        ${{secrets.REDIRECT_URI_GOOGLE}}
+        ${REDIRECT_URI_GOOGLE}
 
 # oauth google
 secret:
   google:
-      ${{secrets.SECRET_GOOGLE}}
+      ${SECRET_GOOGLE}
 test:
     test-yaml
