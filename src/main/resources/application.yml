@@ -13,7 +13,7 @@ aws:
 spring:
   config:
     activate:
-        profile:
+        on-profile:
           production
     import:
       'aws-parameterstore:'
