@@ -1,7 +1,8 @@
 aws:
   paramstore:
     name: ebang
-
+    
+  
 spring:
   config:
     import: 'aws-parameterstore:'
