@@ -1,3 +1,5 @@
+
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.10'
@@ -25,6 +27,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	implementation 'org.yaml:snakeyaml:1.28'
+	implementation 'software.amazon.awssdk:ssm:2.17.69'
+	implementation 'com.coveo:spring-boot-parameter-store-integration:1.1.2'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	implementation 'mysql:mysql-connector-java:8.0.26'
