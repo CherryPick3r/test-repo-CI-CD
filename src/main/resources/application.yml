@@ -5,7 +5,7 @@ aws:
     prefix: /config
     profile-seperator: _
     name: ebang
-
+---
 spring:
   config:
     import: 'aws-parameterstore:'
