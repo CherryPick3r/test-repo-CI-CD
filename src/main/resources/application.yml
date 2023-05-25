@@ -8,8 +8,6 @@ aws:
 
 spring:
   config:
-    activate:
-        on-profile: production
     import: 'aws-parameterstore:'
 
   datasource:
