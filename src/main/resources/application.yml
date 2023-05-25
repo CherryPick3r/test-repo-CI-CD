@@ -1,18 +1,10 @@
-# Mysql
 aws:
-    paramstore:
-        enabled:
-          true
-        prefix:
-          /config
-        profile-seperator:
-          _
-        name:
-          ebang
+  paramstore:
+    name: ebang
+
 spring:
   config:
-    import:
-      'aws-parameterstore:'
+    import: 'aws-parameterstore:'
 
     datasource:
       url:
