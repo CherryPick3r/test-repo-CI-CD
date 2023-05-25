@@ -1,19 +1,26 @@
+# Mysql
 aws:
-  paramstore:
-    name: ebang
-    
-  
+    paramstore:
+        enabled:
+          true
+        prefix:
+          /config
+        profile-seperator:
+          _
+        name:
+          ebang
 spring:
   config:
-    import: 'aws-parameterstore:'
+    import:
+      'aws-parameterstore:'
 
     datasource:
       url:
-        ${DATASOURCE_URL}
+        jdbc:mysql://cherrypicker-database.cfxpmyxyy9qj.ap-northeast-2.rds.amazonaws.com:3306/cherrypicker_database?characterEncoding=utf8
       username:
-        ${DATASOURCE_USERNAME}
+        admin
       password:
-        ${DATASOURCE_PASSWORD}
+        cherrypcik3r
 
     jpa:
       show-sql:
@@ -36,19 +43,19 @@ spring:
 client:
     id:
       kakao:
-        ${CLIENT_ID_KAKAO}
+        90f0b36bd37367b113a494fce6834618
       google:
-        ${CLIENT_ID_GOOGLE}
+        387913665744-i5timehl8mg38shj25p1pjd2g2hfe9ls:apps:googleusercontent:com
 redirect:
     uri:
       kakao:
-        ${REDIRECT_URI_KAKAO}
+        http://43.202.25.158:8080/api/v1/auth/kakao/callback
       google:
-        ${REDIRECT_URI_GOOGLE}
+        http://43.202.25.158:8080/api/v1/auth/google/callback
 
 # oauth google
 secret:
   google:
-      ${SECRET_GOOGLE}
+    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
 test:
     test-yaml
