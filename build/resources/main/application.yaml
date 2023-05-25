@@ -1,5 +1,18 @@
 # Mysql
+aws:
+    paramstore:
+        enabled:
+          true
+        prefix:
+          /config
+        profile-seperator:
+          _
+        name:
+          ebang
 spring:
+    import:
+      'aws-parameterstore:'
+
     datasource:
       url:
         ${DATASOURCE_URL}
@@ -43,3 +56,5 @@ redirect:
 secret:
   google:
       ${SECRET_GOOGLE}
+test:
+    test-yaml

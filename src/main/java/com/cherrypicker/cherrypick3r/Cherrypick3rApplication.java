@@ -10,6 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class Cherrypick3rApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("aws.accessKeyId", "${}");
+		System.setProperty("aws.secretKey", "${secretKey}");
+		System.setProperty("aws.region", "ap-northeast-2");
 		SpringApplication.run(Cherrypick3rApplication.class, args);
 	}
 
