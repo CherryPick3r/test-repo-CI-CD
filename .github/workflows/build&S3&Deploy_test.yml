@@ -19,8 +19,6 @@ env:
   CODE_DEPLOY_APPLICATION_NAME: ${{secrets.CODE_DEPLOY_APPLICATION_NAME}}
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: ${{secrets.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME}}
   APPILICATION_YAML_PATH: ./src/main/resources/application.yaml
-  test: test_for_yaml_set
-  CHANGE_WORD: chage_word_test
   
   
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -40,21 +38,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-          
-          
-      - name: Set Yaml
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: ${{ env.APPILICATION_YAML_PATH }}
-        env:
-          spring.datasource.url: ${{ secrets.DATASOURCE_URL }}
-          spring.datasource.username: ${{secrets.DATASOURCE_USERNAME}}
-          spring.datasource.password: ${{secrets.DATASOURCE_PASSWORD}}
-          client.id.kakao: ${{secrets.CLIENT_ID_KAKAO}}
-          client.id.google: ${{secrets.CLEINT_ID_GOOGLE}}
-          redirect.uri.kakao: ${{secrets.REDIRECT_URI_KAKAO}}
-          redirect.uri.google: ${{secrets.REDIRECT_URI_GOOGLE}}
-          secret.google: ${{secrets.SECRET_GOOGLE}}
       
       - name : susbstition test
         uses: microsoft/variable-substitution@v1
