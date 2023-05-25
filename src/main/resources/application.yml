@@ -9,6 +9,7 @@ aws:
       _
     name:
       ebang
+
 spring:
   config:
     activate:
