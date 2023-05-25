@@ -15,11 +15,11 @@ spring:
 
     datasource:
       url:
-        ${DATASOURCE_URL}
+        ${{secrets.DATASOURCE_URL}}
       username:
-        ${DATASOURCE_USERNAME}
+        ${{secrets.DATASOURCE_USERNAME}}
       password:
-        ${DATASOURCE_PASSWORD}
+        ${{secrets.DATASOURCE_PASSWORD}}
 
     jpa:
       show-sql:
@@ -42,19 +42,19 @@ spring:
 client:
     id:
       kakao:
-        ${CLIENT_ID_KAKAO}
+        ${{secrets.CLIENT_ID_KAKAO}}
       google:
-        ${CLIENT_ID_GOOGLE}
+        ${{secrets.CLIENT_ID_GOOGLE}}
 redirect:
     uri:
       kakao:
-        ${REDIRECT_URI_KAKAO}
+        ${{secrets.REDIRECT_URI_KAKAO}}
       google:
-        ${REDIRECT_URI_GOOGLE}
+        ${{secrets.REDIRECT_URI_GOOGLE}}
 
 # oauth google
 secret:
   google:
-      ${SECRET_GOOGLE}
+      ${{secrets.SECRET_GOOGLE}}
 test:
     test-yaml
