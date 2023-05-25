@@ -11,6 +11,7 @@ TIME_NOW=$(date +%c)
 
 # build 파일 복사
 echo "$TIME_NOW > $JAR_FILE 파일 복사" >> $DEPLOY_LOG
+JAR_PATH=$(ls $PROJECT_ROOT/build/libs/*.jar | tail -n 1)
 cp $PROJECT_ROOT/build/libs/*.jar $JAR_FILE
 
 # jar 파일 실행
